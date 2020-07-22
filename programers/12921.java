@@ -1,30 +1,25 @@
-import java.util.ArrayList;
-
 class Solution {
         public int solution(int n) {
+            int[] arr = new int[n + 1];
             int answer = 0;
-
-            ArrayList<Boolean> array = new ArrayList<>();
-
-            array.add(false);
-            array.add(false);
-
             for (int i = 2; i <= n; i++) {
-                array.add(true);
+                arr[i] = i;
             }
 
-            for (int i = 2; (i * i) <= n; i++) {
-                if (array.get(i)) {
-                    for (int j = i * 2; j <= n; j += i) array.set(j, false);
+            int Sqrt = (int) Math.sqrt(n);
+            for (int i = 2; i <= Sqrt; i++) {
+                if (arr[i] == 0) {
+                    continue;
+                }
+                for (int j = i + i; j <= n; j += i) {
+                    arr[j] = 0;
                 }
             }
-
-            for(Boolean b : array) {
-                if (b) {
+            for (int i = 2; i <= n; i++) {
+                if (arr[i] != 0) {
                     answer++;
                 }
             }
-
             return answer;
         }
     }
