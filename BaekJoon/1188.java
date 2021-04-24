@@ -8,23 +8,7 @@ class Main {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int answer = 0;
-
-        if (N % M == 0) {
-            answer = 0;
-        } else {
-            if (N > M) {
-                N %= M;
-            }
-            answer = M;
-            int gcd = gcd(N, M);
-            int n = N / gcd;
-            int m = M / gcd;
-            int lcm = lcm(n, m);
-            answer -= M / (lcm / n);
-        }
-
-        System.out.println(answer);
+        System.out.println(M - gcd(N, M));
     }
 
     private static int gcd(int a, int b) {
