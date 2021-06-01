@@ -22,6 +22,7 @@ class Main {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
+
         Dice dice = new Dice();
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < K; i++) {
